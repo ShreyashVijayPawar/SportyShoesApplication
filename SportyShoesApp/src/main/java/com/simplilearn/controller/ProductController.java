@@ -42,6 +42,7 @@ public class ProductController {
 	@PutMapping("/updateProduct")
 	@PreAuthorize("hasRole('Admin')")
 	public ResponseEntity<Product> updateProduct(@Valid @RequestBody ProductDTO productDTO) throws ProductException, ProductCategoryException{
+		System.out.println("/updateProduct -> updateProduct");
 		return new ResponseEntity<Product>(productService.updateProduct(productDTO), HttpStatus.OK);
 	}
 	
