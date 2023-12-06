@@ -37,6 +37,7 @@ public class UserController {
     @GetMapping({"/getUserDetails/{userName}"})
     @PreAuthorize("hasAnyRole('Admin','User')")
     public User getUserDetails(@PathVariable("userName") String userName) throws UserException{
+        System.out.println("//getUserDetails/{userName} -> added by Shreyash");
         return userService.getUserDetails(userName);
     }
     
