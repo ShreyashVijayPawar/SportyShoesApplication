@@ -35,6 +35,7 @@ public class OrderController {
 	@PostMapping("/order")
     @PreAuthorize("hasRole('User')")
 	public ResponseEntity<String > placeOrder(@Valid @RequestBody OrderRequest orderDTO) throws OrderException, ProductException, UserException{
+		System.out.println("/order -> placeOrder");
 		String preMessage = "Order Successfully placed. Order Tracking Number is ";
 		return new  ResponseEntity<String>(preMessage+orderService.insertOrder(orderDTO), HttpStatus.OK);
 	}
@@ -43,6 +44,7 @@ public class OrderController {
 	@PutMapping("/modifyOrder")
     @PreAuthorize("hasRole('User')")
 	public ResponseEntity<Order> modifyOrder(@Valid @RequestBody OrderRequest orderDTO) throws OrderException, ProductException{
+		System.out.println("/modifyOrder -> modifyOrder");
 		return new ResponseEntity<Order>(orderService.updateOrder(orderDTO), HttpStatus.OK);
 	}
 	
