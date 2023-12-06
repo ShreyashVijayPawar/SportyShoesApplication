@@ -34,6 +34,7 @@ public class ProductController {
 	@PostMapping("/product")
 	@PreAuthorize("hasRole('Admin')")
 	public ResponseEntity<Product> addProduct(@Valid @RequestBody ProductDTO productDTO) throws ProductException, ProductCategoryException{
+		System.out.println("/product -> addProduct");
 		return new ResponseEntity<Product>(productService.addProduct(productDTO), HttpStatus.CREATED);
 	}
 	
