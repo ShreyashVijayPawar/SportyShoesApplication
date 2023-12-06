@@ -34,6 +34,7 @@ public class ProductController {
 	@PostMapping("/product")
 	@PreAuthorize("hasRole('Admin')")
 	public ResponseEntity<Product> addProduct(@Valid @RequestBody ProductDTO productDTO) throws ProductException, ProductCategoryException{
+		System.out.println("/product -> addProduct");
 		return new ResponseEntity<Product>(productService.addProduct(productDTO), HttpStatus.CREATED);
 	}
 	
@@ -41,6 +42,7 @@ public class ProductController {
 	@PutMapping("/updateProduct")
 	@PreAuthorize("hasRole('Admin')")
 	public ResponseEntity<Product> updateProduct(@Valid @RequestBody ProductDTO productDTO) throws ProductException, ProductCategoryException{
+		System.out.println("/updateProduct -> updateProduct");
 		return new ResponseEntity<Product>(productService.updateProduct(productDTO), HttpStatus.OK);
 	}
 	
